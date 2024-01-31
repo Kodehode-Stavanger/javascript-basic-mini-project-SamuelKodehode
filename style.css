@@ -50,13 +50,14 @@ body {
 }
 
 #money-counter {
-    color: #ffffff;
+    color: #005407;
     animation-name: size;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
     animation-play-state: running;
+    font-size: xx-large;
 
 }
 
