@@ -87,7 +87,7 @@ newHammer.addEventListener('click', () => {
     }
 });
 function updateCounters() {
-    money.textContent = player.money.toString();
+    money.textContent = player.money.toFixed(0);
     childIncome.textContent = `${player.childCount} cash/s`;
     childCounter.textContent = 'Child X ' + player.childCount.toString();
     childPrice.textContent = `${childPriceIncrease * player.childCount + childStartPrice}`;
@@ -109,8 +109,8 @@ hammer.addEventListener('click', () => {
     updateCounters();
 });
 const workerIncome = () => {
-    player.money += Math.trunc(player.workPower / 5);
-    money.textContent = player.money.toString();
+    player.money += player.workPower / 5;
+    money.textContent = player.money.toFixed(0);
     childPrice.style.color = Number(childPrice.textContent) <= player.money ? 'green' : 'red';
     cafChildPrice.style.color = Number(cafChildPrice.textContent) <= player.money ? 'green' : 'red';
     momChildPrice.style.color = Number(momChildPrice.textContent) <= player.money ? 'green' : 'red';

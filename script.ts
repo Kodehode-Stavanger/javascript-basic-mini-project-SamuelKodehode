@@ -109,7 +109,7 @@ newHammer.addEventListener('click', () => {
 })
 
 function updateCounters() {
-	money.textContent = player.money.toString()
+	money.textContent = player.money.toFixed(0)
 
 	childIncome.textContent = `${player.childCount} cash/s`
 	childCounter.textContent = 'Child X ' + player.childCount.toString()
@@ -140,8 +140,8 @@ hammer.addEventListener('click', () => {
 
 //adds money and controls if you can afford items
 const workerIncome = () => {
-	player.money += Math.trunc(player.workPower / 5)
-	money.textContent = player.money.toString()
+	player.money += player.workPower / 5
+	money.textContent = player.money.toFixed(0)
 	/*	localStorage.setItem('player', JSON.stringify(player))*/
 	childPrice.style.color = Number(childPrice.textContent) <= player.money ? 'green' : 'red'
 	cafChildPrice.style.color = Number(cafChildPrice.textContent) <= player.money ? 'green' : 'red'
