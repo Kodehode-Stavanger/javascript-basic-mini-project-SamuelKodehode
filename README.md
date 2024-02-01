@@ -1,4 +1,4 @@
-
+https://kodehode-stavanger.github.io/javascript-basic-mini-project-SamuelKodehode/
 
 # TypeScript Project Template Readme
 
