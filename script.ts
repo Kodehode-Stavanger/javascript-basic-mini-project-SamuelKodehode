@@ -1,3 +1,4 @@
+
 const player: {
 	money: number
 	workPower: number
@@ -60,6 +61,7 @@ const gmoChildPriceIncrease: number = 3000
 const gmoChildStartPrice: number = 1500
 const gmoChildPower: number = 35
 
+//gets info from storage
 // @ts-ignore
 const savedPlayer: string = JSON.parse(localStorage.getItem('player'))
 if (savedPlayer) {
@@ -69,6 +71,7 @@ if (savedPlayer) {
 hammer.src = player.hammerURL
 newHammer.textContent = `Gold Hammer ${player.hammerPrice} $`
 
+//hammer logic
 newHammer.addEventListener('click', () => {
 	if (player.hammerPrice <= player.money) {
 		if (player.hammerCount === 1) {
@@ -135,8 +138,9 @@ hammer.addEventListener('click', () => {
 	updateCounters()
 })
 
+//adds money and controls if you can afford items
 const workerIncome = () => {
-	player.money += player.workPower
+	player.money += Math.trunc(player.workPower / 5)
 	money.textContent = player.money.toString()
 	/*	localStorage.setItem('player', JSON.stringify(player))*/
 	childPrice.style.color = Number(childPrice.textContent) <= player.money ? 'green' : 'red'
@@ -145,8 +149,9 @@ const workerIncome = () => {
 	gmoChildPrice.style.color = Number(gmoChildPrice.textContent) <= player.money ? 'green' : 'red'
 }
 
-setInterval(workerIncome, 1000)
+setInterval(workerIncome, 200)
 
+//buy logic and price incrementing
 const handleChildClick = (
 	priceIncrease: number,
 	startPrice: number,
@@ -165,6 +170,7 @@ const handleChildClick = (
 	updateCounters()
 }
 
+// adding buy logic to items
 child.addEventListener('click', () => {
 	handleChildClick(childPriceIncrease, childStartPrice, childStartPower, 'childCount')
 })

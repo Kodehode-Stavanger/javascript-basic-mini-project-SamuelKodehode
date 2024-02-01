@@ -109,14 +109,14 @@ hammer.addEventListener('click', () => {
     updateCounters();
 });
 const workerIncome = () => {
-    player.money += player.workPower;
+    player.money += Math.trunc(player.workPower / 5);
     money.textContent = player.money.toString();
     childPrice.style.color = Number(childPrice.textContent) <= player.money ? 'green' : 'red';
     cafChildPrice.style.color = Number(cafChildPrice.textContent) <= player.money ? 'green' : 'red';
     momChildPrice.style.color = Number(momChildPrice.textContent) <= player.money ? 'green' : 'red';
     gmoChildPrice.style.color = Number(gmoChildPrice.textContent) <= player.money ? 'green' : 'red';
 };
-setInterval(workerIncome, 1000);
+setInterval(workerIncome, 200);
 const handleChildClick = (priceIncrease, startPrice, powerIncrease, childType) => {
     let price = priceIncrease * player[childType] + startPrice;
     if (price <= player.money) {
