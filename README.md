@@ -4,6 +4,7 @@ https://kodehode-stavanger.github.io/javascript-basic-mini-project-SamuelKodehod
 
 ## Overview
 
+
 This TypeScript project template is designed to kickstart your TypeScript development with proper configuration for the TypeScript Compiler (`tsc`) and Prettier. Below, you'll find a brief explanation of the key configuration files and their purpose.
 
 ## Files
